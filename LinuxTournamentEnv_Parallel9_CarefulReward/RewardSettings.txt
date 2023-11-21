@@ -1,0 +1,15 @@
+float rewardHittingWithLaser = 0.005f;
+float targetPickUp = 0.0075f;
+float stealingBonus = 0.0075f;
+
+rewardDict.Add("hit-enemy", rewardHittingWithLaser); //reward for hitting an enemy with the laser
+rewardDict.Add("frozen",   -rewardHittingWithLaser); //punishment per tick being frozen
+rewardDict.Add("shooting-laser", -0.001f); //punishment for the act of shooting lasers (since it might lose you time)
+rewardDict.Add("dropped-one-target", -rewardHittingWithLaser); // punishment per target dropped when shot by laser
+// rewardDict.Add("dropped-targets", 0f); // punishment when hit by laser (same to freeze?)
+// added by AKIRA:
+rewardDict.Add("carry-one-target-back-to-base", 0.01f); // reward per target brought back to base
+rewardDict.Add("pick-up-target", targetPickUp); // reward when picking up a target
+rewardDict.Add("bump-into-wall", -0.005f); // punishment for bumping into walls
+rewardDict.Add("enemy-stole-one-target", -(stealingBonus + targetPickUp)); // punishment when the enemy steals a target from your base
+rewardDict.Add("bonus-stealing-from-enemy", stealingBonus); // bonus for picking up a target in the enemy base
